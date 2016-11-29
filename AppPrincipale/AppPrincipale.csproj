@@ -179,6 +179,10 @@
     <Compile Include="Migrations\201611282105137_Initiale.Designer.cs">
       <DependentUpon>201611282105137_Initiale.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611291928019_modifs.cs" />
+    <Compile Include="Migrations\201611291928019_modifs.Designer.cs">
+      <DependentUpon>201611291928019_modifs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Abonnement.cs" />
     <Compile Include="Models\AbonnementContext.cs" />
@@ -272,6 +276,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201611282105137_Initiale.resx">
       <DependentUpon>201611282105137_Initiale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611291928019_modifs.resx">
+      <DependentUpon>201611291928019_modifs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

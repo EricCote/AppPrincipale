@@ -17,19 +17,19 @@ namespace AppPrincipale.Controllers
         [HttpPost()]
         public ActionResult Inscription(Models.Abonnement ab)
         {
-            Models.AbonnementContext db = new Models.AbonnementContext();
-            db.Abonnements.Add(ab);
-
-            try
+            if (ModelState.IsValid)
             {
+                Models.AbonnementContext db = new Models.AbonnementContext();
+                db.Abonnements.Add(ab);
                 db.SaveChanges();
+                return View("Merci", "", ab.Nom);
             }
-            catch
+            else
             {
                 ViewBag.Erreur = "Email invalide!";
                 return View("Index", ab);
             }
-            return View("Merci", "", ab.Nom);
+
         }
 
 

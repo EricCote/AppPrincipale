@@ -9,8 +9,10 @@ namespace AppPrincipale.Models
     public class Abonnement
     {
         public int AbonnementID { get; set; }
+        [Required(ErrorMessage = "Nom Obligatoire")]
         public string Nom { get; set; }
-        [EmailAddress]
+        [Required(ErrorMessage = "Courriel obligatoire!")]
+        [EmailAddress(ErrorMessage = "Courriel invalide!")]
         public string Courriel { get; set; }
         public bool Actif { get; set; }
     }

@@ -12,5 +12,7 @@ namespace AppPrincipale.Models
         { }
 
         public DbSet<Abonnement> Abonnements { get; set; }
+
+        
     }
 }

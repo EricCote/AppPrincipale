@@ -23,10 +23,10 @@
                    value="@(Model?.Nom)" />
         </div>
         <div>
-            <label for="txtCourriel">Courriel : </label>
+            @Html.LabelFor(m=>m.Courriel)
             @Html.TextBoxFor(m => m.Courriel ,
                new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Courriel,"*",
+            @Html.ValidationMessageFor(m => m.Courriel,"",
                new { @class= "label label-danger" })
         </div>
         <div>

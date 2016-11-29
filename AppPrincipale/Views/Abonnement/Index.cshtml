@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Abonnez-vous!";
+}
+@model AppPrincipale.Models.Abonnement
+
+<h2>Abonnez-vous!</h2>
+
+<p>Bienvenue sur la page web. 
+    Abonnez-vous pour obtenir toutes 
+    les informations. </p> 
+
+<form action="@Url.Action("Inscription","Abonnement")" 
+      method="post" >
+    <fieldset class="form-group">
+        <legend>
+            Détails
+        </legend>
+        <div>
+            <label for="txtNom">Nom : </label> 
+            <input type="text" name="nom" 
+                   id="txtNom" class="form-control" 
+                   value="@(Model?.Nom)" />
+        </div>
+        <div>
+            <label for="txtCourriel">Courriel : </label>
+            @Html.TextBoxFor(m => m.Courriel ,
+               new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Courriel,"*",
+               new { @class= "label label-danger" })
+        </div>
+        <div>
+            <input type="submit"
+                   id="btnEnvoyer"
+                   value="Envoyer"
+                   class="btn btn-default" />
+        </div>
+    </fieldset>
+</form>
+
+@section scripts {
+   @Scripts.Render("~/bundles/jqueryval")       
+}
+
+
+
+
+
+
+

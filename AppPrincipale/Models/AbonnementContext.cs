@@ -8,7 +8,7 @@ namespace AppPrincipale.Models
 {
     public class AbonnementContext  : DbContext
     {
-        public AbonnementContext() : base("AbonnementsBd")
+        public AbonnementContext() : base("AbonnementsBd2")
         { }
 
         public DbSet<Abonnement> Abonnements { get; set; }

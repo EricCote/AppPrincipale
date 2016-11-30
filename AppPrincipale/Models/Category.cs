@@ -32,6 +32,7 @@ namespace AppPrincipale.Models
 
         public Guid rowguid { get; set; }
 
+        [DataType(DataType.Date)]
         public DateTime ModifiedDate { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

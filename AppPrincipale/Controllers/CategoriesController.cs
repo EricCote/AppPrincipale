@@ -84,6 +84,9 @@ namespace AppPrincipale.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CategoryID,ParentCategoryID,Name,rowguid,ModifiedDate")] Category category)
         {
+           
+            if (category.ModifiedDate == default (DateTime) )
+                category.ModifiedDate = System.DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Entry(category).State = EntityState.Modified;

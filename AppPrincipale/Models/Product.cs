@@ -23,9 +23,11 @@ namespace AppPrincipale.Models
         public string Color { get; set; }
 
         [Column(TypeName = "money")]
+        [DataType(DataType.Currency)]
         public decimal StandardCost { get; set; }
 
         [Column(TypeName = "money")]
+        [DataType(DataType.Currency)]
         public decimal ListPrice { get; set; }
 
         [StringLength(5)]
@@ -33,16 +35,23 @@ namespace AppPrincipale.Models
 
         public decimal? Weight { get; set; }
 
-        public int? ProductCategoryID { get; set; }
+        [Column("ProductCategoryID")]
+        public int? CategoryID { get; set; }
 
         public int? ProductModelID { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode =true,  DataFormatString = "yyyy-MM-dd")]
         public DateTime SellStartDate { get; set; }
 
+        [DataType(DataType.Date)]      
+        [UIHint("DateRouge")]
         public DateTime? SellEndDate { get; set; }
 
+        [DataType(DataType.Date)]
         public DateTime? DiscontinuedDate { get; set; }
 
+        [ScaffoldColumn(false)]
         public byte[] ThumbNailPhoto { get; set; }
 
         [StringLength(50)]
@@ -50,8 +59,9 @@ namespace AppPrincipale.Models
 
         public Guid rowguid { get; set; }
 
+        [DataType(DataType.Date)]
         public DateTime ModifiedDate { get; set; }
 
-        public virtual Category ProductCategory { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

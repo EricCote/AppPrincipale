@@ -17,7 +17,7 @@ namespace AppPrincipale.Controllers
         // GET: Categories
         public ActionResult Index()
         {
-            var productCategories = db.ProductCategories.Include(c => c.ParentCategory);
+            var productCategories = db.ProductCategories.Where(c=>c.ParentCategoryID.HasValue).Include(c => c.Products);
             return View(productCategories.ToList());
         }
 

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<AppPrincipale.Models.Product>
+
+
+<table class="table">
+ 
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a href="@Url.Action("Edit", "Produit", new { id = item.ProductID })" 
+                   title="Édition" class='glyphicon glyphicon-pencil' ></a> | 
+                <a href="@Url.Action("Details", "Produit", new { id = item.ProductID })"
+                   title="Détails" class='glyphicon glyphicon-th-list'></a> |
+                <a href="@Url.Action("Delete", "Produit", new { id = item.ProductID })"
+                   title="Supprimer" class='glyphicon glyphicon-remove'></a>
+             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StandardCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SellStartDate)
+            </td>
+          
+        </tr>
+    }
+</table>

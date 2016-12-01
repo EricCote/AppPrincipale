@@ -7,9 +7,12 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AppPrincipale.Models;
+using AppPrincipale.Filters;
 
 namespace AppPrincipale.Controllers
 {
+
+//  [Language("ja-JP")]
     public class CategoriesController : Controller
     {
         private AwContext db = new AwContext();
@@ -17,6 +20,10 @@ namespace AppPrincipale.Controllers
         // GET: Categories
         public ActionResult Index()
         {
+            ViewBag.Title = "wow!!!";
+            ViewData["Title"] = "wow!!!";
+
+
             var productCategories = db.ProductCategories.Where(c=>c.ParentCategoryID.HasValue).Include(c => c.Products);
             return View(productCategories.ToList());
         }
@@ -62,8 +69,11 @@ namespace AppPrincipale.Controllers
         }
 
         // GET: Categories/Edit/5
+      
         public ActionResult Edit(int? id)
         {
+
+          
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

@@ -4,10 +4,11 @@ namespace AppPrincipale.Models
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using Controllers;
 
     public partial class AwContext : DbContext
     {
-        public AwContext()
+        public AwContext()  
             : base("name=AwContext")
         {
         }

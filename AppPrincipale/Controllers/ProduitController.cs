@@ -12,7 +12,15 @@ namespace AppPrincipale.Controllers
 {
     public class ProduitController : Controller
     {
-        private AwContext db = new AwContext();
+        private AwContext db;
+
+        public ProduitController()
+        {
+            db = new AwContext();
+        }
+
+        
+
 
         // GET: Produit
         public ActionResult Index()

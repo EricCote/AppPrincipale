@@ -49,14 +49,16 @@
     @foreach (var item in Model)
             {
         <tr>
-            <td>
+            <td>@if (Context.User.IsInRole("WINDEV1610EVAL\\afi2") { <text>
                 <a href="@Url.Action("Edit", "Produit", new { id = item.ProductID })"
                    title="Édition" class='glyphicon glyphicon-pencil'></a> |
-                <a href="@Url.Action("Details", "Produit", new { id = item.ProductID })"
-                   title="Détails" class='glyphicon glyphicon-th-list'></a> |
-                <a href="@Url.Action("Delete", "Produit", new { id = item.ProductID })"
-                   title="Supprimer" class='glyphicon glyphicon-remove'></a>
-            </td>
+                </text>
+                }
+                    <a href="@Url.Action("Details", "Produit", new { id = item.ProductID })"
+                       title="Détails" class='glyphicon glyphicon-th-list'></a> |
+                    <a href="@Url.Action("Delete", "Produit", new { id = item.ProductID })"
+                       title="Supprimer" class='glyphicon glyphicon-remove'></a>
+</td>
             <td>
                 @Html.DisplayFor(modelItem => item.Category.Name)
             </td>

@@ -12,7 +12,10 @@ namespace AppPrincipale
             monErreur.View = "Erreur2"; 
             filters.Add(monErreur);
 
-
+            AuthorizeAttribute auth = new AuthorizeAttribute();
+            //auth.Users = "WINDEV1610EVAL\\user";
+            // auth.Roles="BUILTIN\\Administrators";
+         
             //LanguageAttribute langue = new LanguageAttribute("fr-CA");
             //filters.Add(langue);
 

@@ -24,6 +24,7 @@ namespace AppPrincipale.Controllers
 
 
         // GET: Produit
+        [Authorize(Roles = "WINDEV1610EVAL\\afi1")]
         public ActionResult Index()
         {
             var products = db.Products.Include(p => p.Category);
@@ -95,6 +96,7 @@ namespace AppPrincipale.Controllers
         }
 
         // GET: Produit/Edit/5
+        [Authorize(Roles = "WINDEV1610EVAL\\afi2")]
         public ActionResult Edit(int? id)
         {
             if (id == null)

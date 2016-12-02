@@ -43,6 +43,15 @@ namespace AppPrincipale.Controllers
             return File(prod.ThumbNailPhoto, MediaTypeNames.Image.Gif);
         }
 
+  
+        public JsonResult Suggestion(string term)
+        {
+            var result = db.Products.Where(p => p.Name.StartsWith(term)).Take(10).
+                 Select(p => new { id = p.ProductID,  value = p.Name });
+            JsonResult r = Json(result.ToArray());
+            r.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            return r;
+        }
 
 
         // GET: Produit/Details/5

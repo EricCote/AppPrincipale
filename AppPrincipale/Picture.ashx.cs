@@ -17,15 +17,7 @@ namespace AppPrincipale
         public void ProcessRequest(HttpContext context)
         {
             int productID = 0;
-            if (RequestContext == null)
-            {
-                int.TryParse(context.Request.QueryString["id"], out productID);
-            }
-            else
-            {
-                int.TryParse(RequestContext.RouteData.Values["id"].ToString(), out productID);
-            }
-
+            int.TryParse(context.Request.QueryString["id"], out productID);
 
             if (productID != 0)
             {
@@ -36,7 +28,7 @@ namespace AppPrincipale
                     {
                         context.Response.ContentType = "image/gif";
                         context.Response.BinaryWrite(prod.ThumbNailPhoto);
-                        context.Response.End();
+                        //context.Response.End();
                     }
                 }
             }

@@ -9,8 +9,19 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<form action="/produit/resultat" class="form-horizontal">
+    <div class="form-group">
+        <label for="txtRecherche" class="control-label col-md-1">Recherche: </label>
+        <input type="text" id="txtRecherche" name="recherche"
+               class="form-control form-inline col-md-4" />
+        <button class="btn glyphicon glyphicon-search col-md-1"> </button>
+
+    </div>
+</form>
+
 <table class="table">
     <tr>
+        <th></th>
         <th>
             @Html.DisplayNameFor(model => model.Category.Name)
         </th>
@@ -23,59 +34,51 @@
         <th>
             @Html.DisplayNameFor(model => model.Color)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StandardCost)
-        </th>
+
         <th>
             @Html.DisplayNameFor(model => model.ListPrice)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Size)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Weight)
-        </th>
+
+
         <th>
             @Html.DisplayNameFor(model => model.SellStartDate)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Color)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StandardCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ListPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Size)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Weight)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SellStartDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                <a href="@Url.Action("Edit", "Produit", new { id = item.ProductID })"
+                   title="Édition" class='glyphicon glyphicon-pencil'></a> |
+                <a href="@Url.Action("Details", "Produit", new { id = item.ProductID })"
+                   title="Détails" class='glyphicon glyphicon-th-list'></a> |
+                <a href="@Url.Action("Delete", "Produit", new { id = item.ProductID })"
+                   title="Supprimer" class='glyphicon glyphicon-remove'></a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SellStartDate)
+            </td>
+            <td>
+                <img src="~/picture/@item.ProductID" />
+            </td>
+        </tr>
+    }
 
 </table>

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AppPrincipale.Models;
+using System.Net.Mime;
 
 namespace AppPrincipale.Controllers
 {
@@ -28,6 +29,21 @@ namespace AppPrincipale.Controllers
             var products = db.Products.Include(p => p.Category);
             return View(products.ToList());
         }
+
+        // GET: produit/resultat?recherche={string}
+        public ActionResult resultat(string recherche)
+        {
+            var products = db.Products.Where(p=>p.Name.StartsWith(recherche)).Include(p => p.Category);
+            return View("index",products.ToList());
+        }
+
+        public FileResult GetPicture(int id)
+        {
+            Product prod = db.Products.Find(id);
+            return File(prod.ThumbNailPhoto, MediaTypeNames.Image.Gif);
+        }
+
+
 
         // GET: Produit/Details/5
         public ActionResult Details(int? id)

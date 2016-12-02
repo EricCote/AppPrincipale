@@ -30,8 +30,8 @@ namespace AppPrincipale
 
             bundles.Add(new StyleBundle("~/Content/CSSDatePicker").Include(
                        "~/Content/themes/base/all.css"));
-
-            BundleTable.EnableOptimizations = true;
+ 
+            // BundleTable.EnableOptimizations = true;
 
         }
     }

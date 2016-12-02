@@ -56,5 +56,7 @@ namespace AppPrincipale.Models
                 .WithOptional(e => e.ParentCategory)
                 .HasForeignKey(e => e.ParentCategoryID);
         }
+
+        public System.Data.Entity.DbSet<AppPrincipale.Models.Commentaire> Commentaires { get; set; }
     }
 }

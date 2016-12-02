@@ -25,6 +25,13 @@ namespace AppPrincipale
                 defaults: new { controller= "Abonnement", action="Test" }
             );
 
+            routes.MapRoute(
+               name: "picture",
+               url: "picture/{id}",
+               defaults: new { controller = "Produit", action = "GetPicture" }
+           );
+
+         // routes.Add(new Route("picture/{ID}", new PictureRouteHandler()));
 
             routes.MapRoute(
                 name: "Default",
@@ -33,6 +40,18 @@ namespace AppPrincipale
             );
 
 
+        
+
+
+        }
+    }
+
+
+    public class PictureRouteHandler : IRouteHandler
+    {
+        public IHttpHandler GetHttpHandler(RequestContext requestContext)
+        {
+            return new Picture() { RequestContext = requestContext };
         }
     }
 }
